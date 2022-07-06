@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
 
+//Styles
+import { Nav } from "./Menu.styles";
 const Menu = ({ items }) => {
     return (
-        <ul>
-         { items.map((item) => (
+        <Nav>
+         {items.map(item => (
+            <li key={item.id}>
             <Link to={item.link} activeClassName="active">
-            <li key={item.id}>{item.name}</li>
+                {item.name}
             </Link>
+            </li>
          ))}
-        </ul>
+        </Nav>
     )
 }
 
