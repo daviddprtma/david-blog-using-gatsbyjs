@@ -1,9 +1,9 @@
 ---
-slug: 'about'
-type: 'page'
-date: '2022-06-24'
-image: '.../images/about-image.jpg'
-title: 'About Me Page'
+slug: "about"
+type: "page"
+date: "2022-06-24"
+image: ".../images/about.jpg"
+title: "About Me Page"
 ---
 
 David Pratama adalah seorang mahasiswa IT yang sedan kuliah di Ubaya dan sekarang semester 6.

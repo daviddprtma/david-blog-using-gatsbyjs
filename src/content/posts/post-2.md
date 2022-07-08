@@ -1,10 +1,10 @@
 ---
-type: 'post'
-date: '2022-07-10'
-images: '../../images/blog-post-2.jpg'
-slug: 'post-2'
-title: 'Blog Post 2'
-publish: true
+type: "post"
+date: "2022-07-10"
+image: "../../images/blog-post-2.jpg"
+slug: "post-2"
+title: "Blog Post 2"
+published: true
 ---
 
 Teknik Pomodoro adalah teknik belajar yang berlandaskan pada manajemen waktu.

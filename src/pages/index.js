@@ -21,10 +21,10 @@ const IndexPage = ({data}) => {
 export default IndexPage
 
 export const query = graphql`
-query blogListQuery {
+query blogListQuery{
   allMarkdownRemark(
-    filter: {frontmatter: {type: {eq: "post"}}}
-    sort: {fields: frontmatter___date, order: DESC}
+    filter: { frontmatter: { type: { eq: "post" } } }
+    sort: { fields: frontmatter___date, order: DESC }
   ) {
     edges {
       node {
@@ -36,6 +36,13 @@ query blogListQuery {
         frontmatter {
           date
           title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 200, maxHeight: 200){
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         excerpt
       }
