@@ -1,7 +1,7 @@
 ---
 type: "post"
 date: "2022-07-10"
-image: "../../images/blog-post-2.jpg"
+gambar: "../../images/blogpost2.jpg"
 slug: "post-2"
 title: "Blog Post 2"
 published: true

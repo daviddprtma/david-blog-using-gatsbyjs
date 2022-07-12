@@ -7,12 +7,26 @@ import BlogPostCard from "components/BlogPostCard"
 
 
 const IndexPage = ({data}) => {
-  console.log("data",data)
+  const posts = data.allMarkdownRemark.edges
+
   return (<Layout>
         <SEO title="Home" />
        <HomeBanner /> 
        <main>
-       <BlogPostCard />
+        {posts.map(({node},i) => {
+          const title = node.frontmatter.title
+          return (
+            <BlogPostCard
+              key={i}
+              slug="/"
+              title={title}
+              date={node.frontmatter.date}
+              readingTime={node.fields.readingTime.text}
+              excerpt={node.excerpt}
+              gambar={node.frontmatter.gambar.childImageSharp.fluid}
+             />
+          )
+        })}
        </main>
       </Layout>
   )
@@ -21,10 +35,10 @@ const IndexPage = ({data}) => {
 export default IndexPage
 
 export const query = graphql`
-query blogListQuery{
+query blogListQuery {
   allMarkdownRemark(
-    filter: { frontmatter: { type: { eq: "post" } } }
-    sort: { fields: frontmatter___date, order: DESC }
+    filter: {frontmatter: {type: {eq: "post"}}}
+    sort: {fields: frontmatter___date, order: DESC}
   ) {
     edges {
       node {
@@ -36,7 +50,13 @@ query blogListQuery{
         frontmatter {
           date
           title
-          image
+          gambar {
+            childImageSharp {
+              fluid(maxWidth: 200, maxHeight: 200){
+								...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         excerpt
       }

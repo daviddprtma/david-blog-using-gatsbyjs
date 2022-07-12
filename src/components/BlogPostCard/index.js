@@ -4,33 +4,32 @@ import { Link } from 'gatsby'
 import DateIcon from "images/calendar.svg"
 import TimeIcon from "images/watch.svg"
 
+// styles
+import { CardWrapper,ImgWrapper,TextWrapper,StatWrapper,DateWrapper,ReadingTimeWrapper } from './BlogPostCard.styles'
 
-const BlogPostCard = ({slug,title,date,readingTime,excerpt,image}) => {
+const BlogPostCard = ({slug,title,date,readingTime,excerpt,gambar}) => {
   return <>
   <CardWrapper>
     <ImgWrapper>
-    <Img fluid={image}/>
+    <Img fluid={gambar} />
     </ImgWrapper>
 
     <TextWrapper>
       <Link to={slug}>
         <h2>{title}</h2>
       </Link>
-    </TextWrapper>
-
-    <StatWrapper>
+      <StatWrapper>
       <DateWrapper>
         <img src={DateIcon} alt="date"/>
         {date}
       </DateWrapper>
+      <ReadingTimeWrapper>
+      <img src={TimeIcon} alt="time"/>
+      {readingTime}
+      </ReadingTimeWrapper>
     </StatWrapper>
-
-    <ReadingTimeWrapper>
-    <img src={TimeIcon} alt="time"/>
-    {readingTime}
-    </ReadingTimeWrapper>
-
     <p>{excerpt}</p>
+    </TextWrapper>
   </CardWrapper>
   </>
 }

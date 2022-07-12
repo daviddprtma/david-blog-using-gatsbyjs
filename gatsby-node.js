@@ -10,7 +10,7 @@ exports.onCreateWebpackConfig = ({actions}) => {
     type MarkdownRemark implements Node {
       frontmatter: MarkdownRemarkFrontmatter
     }
-  `)
+  `),
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname,"src"),"node_modules"],
