@@ -29,13 +29,7 @@ query($slug: String!) {
         frontmatter {
             title
             date
-            gambar {
-                childImageSharp {
-                    fluid (maxWidth: 2000) {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
-            }
+            image
         }
     }
 }

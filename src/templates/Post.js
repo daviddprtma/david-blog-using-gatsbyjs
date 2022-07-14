@@ -11,7 +11,7 @@ const Post = ({data}) => {
     return (
         <Layout>
             <SEO title={post.frontmatter.title}/>
-            <Gambar fluid={post.frontmatter.image}/>
+            <Gambar fluid={post.frontmatter.gambar.childImageSharp.fluid}/>
             <main>
                 <h2>{post.frontmatter.title}</h2>
                 <div dangerouslySetInnerHTML={{__html:post.html}}/>
@@ -31,7 +31,7 @@ query($slug: String!) {
             date
             gambar {
                 childImageSharp {
-                    fluid (maxWidth: 2000) {
+                    fluid(maxWidth: 200){
                         ...GatsbyImageSharpFluid
                     }
                 }

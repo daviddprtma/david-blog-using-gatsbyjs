@@ -75,6 +75,23 @@ exports.createPages = async({graphql,actions}) => {
       },
     })
   })
+
+  //  create archieve pages
+  const postsPerPages = 2;
+  const numbPages = Math.ceil(allPosts.length / postsPerPages);
+
+  Array.from({length: numbPages}).forEach((_,i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i+1}`,
+      component: path.resolve(`./src/templates/Home.js`),
+      context: {
+        limit: postsPerPages,
+        skip: i * postsPerPages,
+        numbPages,
+        currentPages : i +1,
+      },
+    })
+  })
 }
 
 exports.onCreateWebpackConfig = ({actions}) => {
