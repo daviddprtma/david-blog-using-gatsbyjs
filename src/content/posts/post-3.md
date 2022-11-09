@@ -3,7 +3,7 @@ type: "post"
 date: "2022-07-12"
 gambar: "../../images/blogpost3.jpg"
 slug: "post-3"
-title: "Blog Post 3"
+title: "Apa itu self-healing dan cara melakukannya"
 published: true
 ---
 

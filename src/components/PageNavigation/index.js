@@ -14,13 +14,14 @@ const PageNavigation = ({currentPages, numbPages}) => {
         <ImgWrapper>
             {currentPages > 1 && (
                 <Link to={`/${currentPages === 2 ? '' : currentPages -1}`}>
-                    <input type="image" alt="left-nav" src={LeftIcon}/>
+                    <input type="image" alt="left-nav" src={LeftIcon} />
                 </Link>
             )}
+            &nbsp;
         </ImgWrapper>
 
         <Current>
-            <p>{currentPages}</p>
+            <p>{currentPages} &nbsp;</p>
         </Current>
 
         

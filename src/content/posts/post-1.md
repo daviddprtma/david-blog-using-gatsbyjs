@@ -3,7 +3,7 @@ type: "post"
 date: "2022-07-06"
 gambar: "../../images/blogpost1.jpg"
 slug: "post-1"
-title: "Blog Post 1"
+title: "Biodata David Pratama"
 published: true
 ---
 

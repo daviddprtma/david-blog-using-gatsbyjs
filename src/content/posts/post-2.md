@@ -3,7 +3,7 @@ type: "post"
 date: "2022-07-10"
 gambar: "../../images/blogpost2.jpg"
 slug: "post-2"
-title: "Blog Post 2"
+title: "Pomodoro Technique"
 published: true
 ---
 

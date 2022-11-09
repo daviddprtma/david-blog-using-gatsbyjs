@@ -12,6 +12,6 @@ Instagram : @daviddprtma
 <br>
 Discord: Mr.David#3489
 <br>
-Gmail: davidchristianpratama@gmail.com
+For Collaboration, use this Gmail: davidchristianpratama@gmail.com
 <br>
 Github: daviddprtma

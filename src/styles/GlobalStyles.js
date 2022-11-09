@@ -15,7 +15,7 @@ export const darkTheme = {
     colors: {
         background: colors.darkGrey,
         menuBackGround: colors.blueShade1,
-        textDark: colors.blueShade3,
+        textDark: colors.white,
         textMain: colors.blueShade2,
         textSecondary: colors.blueShade2
     }
