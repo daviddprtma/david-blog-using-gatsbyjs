@@ -6,12 +6,4 @@ slug: "contact"
 title: "Contact Me"
 ---
 
-For more information and how to collaboration with me, you can ask me in this social media
-<br>
-Instagram : @daviddprtma
-<br>
-Discord: Mr.David#3489
-<br>
-For Collaboration, use this Gmail: davidchristianpratama@gmail.com
-<br>
-Github: daviddprtma
+If you want to do more interesting project, you can follow me in github daviddprtma and Instagram @daviddprtma. Thank you and I'll be happy to collab with you all :).

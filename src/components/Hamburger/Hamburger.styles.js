@@ -8,7 +8,7 @@ export const HamburgerIcon = styled.div`
   :after,
   :before,
   div {
-    background-color: ${props => props.theme.colors.textMain};
+    background-color: ${props => props.theme.colors.textDark};
     border-radius: 2px;
     content: "";
     display: block;

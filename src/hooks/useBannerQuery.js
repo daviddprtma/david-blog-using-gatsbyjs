@@ -1,4 +1,3 @@
-import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 const useBannerQuery = () => {
@@ -6,7 +5,7 @@ const useBannerQuery = () => {
     query bannerQuery {
       markdownRemark(frontmatter: { type: { eq: "banner" } }) {
         frontmatter {
-          bannerImage{
+          bannerImage {
             childImageSharp {
               fluid(maxWidth: 2000) {
                 ...GatsbyImageSharpFluid

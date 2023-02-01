@@ -5,11 +5,11 @@ import NightIcon from "images/nightmode.svg"
 // Styles
 import { ImgButton } from "./ModeButton.styles"
 
-const ModeButton = ({darkMode,setDarkMode}) => (
+const ModeButton = ({ darkMode, setDarkMode }) => (
   <ImgButton
     src={darkMode ? NightIcon : DayIcon}
     alt="mode"
-    onClick={()=>setDarkMode(prev => !prev)}
+    onClick={() => setDarkMode(prev => !prev)}
   />
 )
 

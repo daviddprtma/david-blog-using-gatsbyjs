@@ -1,8 +1,9 @@
-// for absolute imports
 const path = require("path")
+
 const { createFilePath } = require("gatsby-source-filesystem")
 
-// first create slug and posts
+// First create slug for posts and pages
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
@@ -15,8 +16,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async({graphql,actions}) => {
-  const {createPage} = actions
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
   const content = await graphql(`
     {
       posts: allMarkdownRemark(
@@ -46,78 +47,59 @@ exports.createPages = async({graphql,actions}) => {
       }
     }
   `)
-  // Do Nothing if error
-  if(content.error) return
+  // Don nothing if error
+  if (content.error) return
   const allPosts = content.data.posts.edges
   const allPages = content.data.pages.edges
 
-  // create the individual posts and pages
-  allPosts.forEach(({node}) => {
-    if(node.frontmatter.published) {
+  // Create the individual posts and pages
+  allPosts.forEach(({ node }) => {
+    if (node.frontmatter.published) {
       createPage({
         path: node.fields.slug,
-        component: path.resolve('./src/templates/Post.js'),
+        component: path.resolve(`./src/templates/Post.js`),
         context: {
-          // Data pass to context is available in page queries graphql
+          // Data passed to context is available in page quries as graphql variables
           slug: node.fields.slug,
         },
       })
     }
   })
 
-  allPages.forEach(({node}) => {
+  allPages.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve('./src/templates/Page.js'),
+      component: path.resolve(`./src/templates/Page.js`),
       context: {
-        // Data pass to context is available in page queries graphql
+        // Data passed to context is available in page quries as graphql variables
         slug: node.fields.slug,
       },
     })
   })
+  // Create archive pages
+  const postsPerPage = 2
+  const numPages = Math.ceil(allPosts.length / postsPerPage)
 
-  //  create archieve pages
-  const postsPerPages = 2;
-  const numbPages = Math.ceil(allPosts.length / postsPerPages);
-
-  Array.from({length: numbPages}).forEach((_,i) => {
+  Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/` : `/${i+1}`,
+      path: i === 0 ? `/` : `/${i + 1}`,
       component: path.resolve(`./src/templates/Home.js`),
       context: {
-        limit: postsPerPages,
-        skip: i * postsPerPages,
-        numbPages,
-        currentPages : i +1,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
       },
     })
   })
 }
 
-exports.onCreateWebpackConfig = ({actions}) => {
-  const { createTypes } = actions
-  createTypes(`
-    // type MarkdownRemarkFrontmatter {
-    //   image: File
-    // }
+// For absolute imports
 
-    type MarkdownRemark implements Node {
-      frontmatter: MarkdownRemarkFrontmatter
-    }
-  `),
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname,"src"),"node_modules"],
-    }
+    resolve: { modules: [path.resolve(__dirname, "src"), "node_modules"] },
   })
 }
 
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions
-//   createPage({
-//     path: "/using-dsg",
-//     component: require.resolve("./src/templates/using-dsg.js"),
-//     context: {},
-//     defer: true,
-//   })
-// }
+

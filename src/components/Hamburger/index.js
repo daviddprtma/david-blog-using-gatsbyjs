@@ -1,6 +1,6 @@
 import React from "react"
 // Styles
-import {HamburgerIcon} from "./Hamburger.styles"
+import { HamburgerIcon } from "./Hamburger.styles"
 
 const Hamburger = ({ menuOpen, setMenuOpen }) => {
   return (
